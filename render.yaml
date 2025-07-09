@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: ema-backend
+    env: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PORT
+        value: 10000
+
+  - type: static
+    name: ema-frontend
+    rootDir: frontend
+    buildCommand: npm run build
+    staticPublishPath: dist    # ou build si tu utilises Create React App
